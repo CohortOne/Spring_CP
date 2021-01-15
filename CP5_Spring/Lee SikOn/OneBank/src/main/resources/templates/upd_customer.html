@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>oneBank - update Customer</title>
+</head>
+<body>
+	<h1><span th:text="${updMode}"></span> Customer Details</h1>
+	<hr>
+	<form method="POST" th:action="@{'/saveCustomer' + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&updMode=' + ${updMode} + '&currPage=' + ${currPage} + '&pageSize=' + ${pageSize}}" action="#" th:object="${newCust}">
+
+		<table>
+			<tr> <!--  hidden="true">  -->
+				<td>(hidden) Customer Id :</td>
+				<td><input type="text" th:field="*{custId}" readonly /></td>
+				<td><input type="text" id="currPage" th:value="${currPage}" readonly />
+				    <input type="text" id="pageSize" th:value="${pageSize}" readonly />
+				    <input type="text" id="sortField" th:value="${sortField}" readonly />
+				    <input type="text" id="sortDirection" th:value="${sortDirection}" readonly />
+				    <input type="text" id="updMode" th:value="${updMode}" readonly />
+				    </td>
+			</tr>
+			<tr>
+				<td>Customer Name :</td>
+				<td><input type="text" th:field="*{custName}"
+					placeholder="Customer Name : " /></td>
+				<td><span th:if="${#fields.hasErrors('custName')}" th:errors="*{custName}"></span></td>
+			</tr>
+			<tr>
+				<td>NRIC :</td>
+				<td><input type="text" th:field="*{nric}"
+					placeholder="9-char NRIC : " /></td>
+				<td><span th:if="${#fields.hasErrors('nric')}" th:errors="*{nric}"></span></td>
+			</tr>
+			<tr>
+				<td>Email Address :</td>
+				<td><input type="email" th:field="*{email}"
+					placeholder="Email Address : " /></td>
+				<td><span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span></td>
+			</tr>
+			<tr>
+				<td>Phone Number :</td>
+				<td><input type="text" th:field="*{phoneNo}"
+					placeholder="Phone Number : " /></td>
+				<td><span th:if="${#fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}"></span></td>
+			</tr>
+			<tr>
+				<td>Address line 1:</td>
+				<td><input type="text" th:field="*{addr1}"
+					placeholder="Address line 1: " /></td>
+				<td><span th:if="${#fields.hasErrors('addr1')}" th:errors="*{addr1}"></span></td>
+			</tr>
+			<tr>
+				<td>Address line 2:</td>
+				<td><input type="text" th:field="*{addr2}"
+					placeholder="Address line 2: " /></td>
+				<td><span th:if="${#fields.hasErrors('addr2')}" th:errors="*{addr2}"></span></td>
+			</tr>
+			<tr>
+				<td>Date of Birth :</td>
+				<td><input type="date" th:field="*{dob}"
+					placeholder="Date of Birth : " /></td>
+				<td><span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span></td>
+			</tr>
+			<tr>
+				<td>Pass Code :</td>
+				<td><input type="text" th:field="*{passCode}"
+					placeholder="Pass Code : " /></td>
+				<td><span th:if="${#fields.hasErrors('passCode')}" th:errors="*{passCode}"></span></td>
+			</tr>
+			<tr>
+				<td>is Active ? :</td>
+				<td><input type="checkbox" th:field="*{isActive}"
+					placeholder="is Active ? : " /></td>
+				<td><span th:if="${#fields.hasErrors('isActive')}" th:errors="*{isActive}"></span></td>
+			</tr>
+			<tr>
+				<td>Date Updated :</td>
+				<td><input type="text" th:field="*{dateUpd}" readonly /></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><button type="Submit">Save Customer Details</button></td>
+			</tr>
+		</table>
+	</form>
+	<br>
+	<a th:href="@{'/page/' + ${currPage} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&pageSize=' + ${pageSize}}">Back to Customer Listing</a>
+	
+	
+	
+</body>
+</html>
+

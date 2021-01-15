@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!-- "th" will be the prefix for all thymeleaf tags -->
+<head>
+<meta charset="ISO-8859-1">
+<title>oneBank - Customer Maint</title>
+</head>
+<body>
+<h1 align=left>Customer List</h1>
+
+<a th:href="@{'/showCustomerForUpdate/0?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&currPage=' + ${currPage} + '&pageSize=' + ${pageSize}}"><button type="button">New Customer</button></a>
+<form method="POST" th:action="@{'/saveCustomerOTS?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&currPage=' + ${currPage} + '&pageSize=' + ${pageSize}}" action="#" th:object="${newCust}">
+	<table border="1">
+		<thead>
+			<tr>
+				<th th:switch="${sortField}">
+				<span th:case="'custId'"><a th:href="@{'/page/' + ${totalPages - currPage + 1} + '?sortField=custId&sortDirection=' + ${reverseSortDirection} + '&pageSize=' + ${pageSize}}">Customer Id<br>([[${sortDirection}]])</a></span>
+				<span th:case="*"><a th:href="@{'/page/1' + '?sortField=custId&sortDirection=ASC' + '&pageSize=' + ${pageSize}}">Customer Id</a></span></th>
+				
+				<th th:switch="${sortField}">
+				<span th:case="'custName'"><a th:href="@{'/page/' + ${totalPages - currPage + 1} + '?sortField=custName&sortDirection=' + ${reverseSortDirection} + '&pageSize=' + ${pageSize}}">Customer Name<br>([[${sortDirection}]])</a></span>
+				<span th:case="*"><a th:href="@{'/page/1' + '?sortField=custName&sortDirection=ASC' + '&pageSize=' + ${pageSize}}">Customer Name</a></span></th>
+				
+				<th th:switch="${sortField}">
+				<span th:case="'nric'"><a th:href="@{'/page/' + ${totalPages - currPage + 1} + '?sortField=nric&sortDirection=' + ${reverseSortDirection} + '&pageSize=' + ${pageSize}}">NRIC<br>([[${sortDirection}]])</a></span>
+				<span th:case="*"><a th:href="@{'/page/1' + '?sortField=nric&sortDirection=ASC' + '&pageSize=' + ${pageSize}}">NRIC</a></span></th>
+				
+				<th th:switch="${sortField}">
+				<span th:case="'phoneNo'"><a th:href="@{'/page/' + ${totalPages - currPage + 1} + '?sortField=phoneNo&sortDirection=' + ${reverseSortDirection} + '&pageSize=' + ${pageSize}}">Phone No<br>([[${sortDirection}]])</a></span>
+				<span th:case="*"><a th:href="@{'/page/1' + '?sortField=phoneNo&sortDirection=ASC' + '&pageSize=' + ${pageSize}}">Phone No</a></span></th>
+				
+				<th th:switch="${sortField}">
+				<span th:case="'email'"><a th:href="@{'/page/' + ${totalPages - currPage + 1} + '?sortField=email&sortDirection=' + ${reverseSortDirection} + '&pageSize=' + ${pageSize}}">Email<br>([[${sortDirection}]])</a></span>
+				<span th:case="*"><a th:href="@{'/page/1' + '?sortField=email&sortDirection=ASC' + '&pageSize=' + ${pageSize}}">Email</a></span></th>
+				
+				<th th:switch="${sortField}">
+				<span th:case="'addr1'"><a th:href="@{'/page/' + ${totalPages - currPage + 1} + '?sortField=addr1&sortDirection=' + ${reverseSortDirection} + '&pageSize=' + ${pageSize}}">Address line 1<br>([[${sortDirection}]])</a></span>
+				<span th:case="*"><a th:href="@{'/page/1' + '?sortField=addr1&sortDirection=ASC' + '&pageSize=' + ${pageSize}}">Address line 1</a></span></th>
+				
+				<th th:switch="${sortField}">
+				<span th:case="'addr2'"><a th:href="@{'/page/' + ${totalPages - currPage + 1} + '?sortField=addr2&sortDirection=' + ${reverseSortDirection} + '&pageSize=' + ${pageSize}}">Address line 2<br>([[${sortDirection}]])</a></span>
+				<span th:case="*"><a th:href="@{'/page/1' + '?sortField=addr2&sortDirection=ASC' + '&pageSize=' + ${pageSize}}">Address line 2</a></span></th>
+				
+				<th th:switch="${sortField}">
+				<span th:case="'dob'"><a th:href="@{'/page/' + ${totalPages - currPage + 1} + '?sortField=dob&sortDirection=' + ${reverseSortDirection} + '&pageSize=' + ${pageSize}}">Date of Birth<br>([[${sortDirection}]])</a></span>
+				<span th:case="*"><a th:href="@{'/page/1' + '?sortField=dob&sortDirection=ASC' + '&pageSize=' + ${pageSize}}">Date of Birth</a></span></th>
+				
+				<th th:switch="${sortField}">
+				<span th:case="'isActive'"><a th:href="@{'/page/' + ${totalPages - currPage + 1} + '?sortField=isActive&sortDirection=' + ${reverseSortDirection} + '&pageSize=' + ${pageSize}}">IsActive<br>([[${sortDirection}]])</a></span>
+				<span th:case="*"><a th:href="@{'/page/1' + '?sortField=isActive&sortDirection=ASC' + '&pageSize=' + ${pageSize}}">Is Active</a></span></th>
+				
+				<th th:switch="${sortField}">
+				<span th:case="'passCode'"><a th:href="@{'/page/' + ${totalPages - currPage + 1} + '?sortField=passCode&sortDirection=' + ${reverseSortDirection} + '&pageSize=' + ${pageSize}}">Pass Code<br>([[${sortDirection}]])</a></span>
+				<span th:case="*"><a th:href="@{'/page/1' + '?sortField=passCode&sortDirection=ASC' + '&pageSize=' + ${pageSize}}">Pass Code</a></span></th>
+				
+				<th th:switch="${sortField}">
+				<span th:case="'dateUpd'"><a th:href="@{'/page/' + ${totalPages - currPage + 1} + '?sortField=dateUpd&sortDirection=' + ${reverseSortDirection} + '&pageSize=' + ${pageSize}}">Last Updated<br>([[${sortDirection}]])</a></span>
+				<span th:case="*"><a th:href="@{'/page/1' + '?sortField=dateUpd&sortDirection=ASC' + '&pageSize=' + ${pageSize}}">Last Updated</a></span></th>
+				<th>Actions</th>
+				<th>On The Spot</th>
+		</thead>
+		<tbody>
+			<tr th:each="customer : ${listCustomers}">
+				<td th:text="${customer.custId}" />
+				<td th:text="${customer.custName} " />
+				<td th:text="${customer.nric}" />
+				<td th:text="${customer.phoneNo}" />
+				<td th:text="${customer.email}" />
+				<td th:text="${customer.addr1}" />
+				<td th:text="${customer.addr2}" />
+				<td th:text="${customer.dob}" />
+				<td><input type="checkbox"  disabled="disabled" 
+					th:checked="${customer.isActive} ? 'checked' "></td>
+				<td th:text="${customer.passCode}" />
+				<td th:text="${customer.dateUpd}" />
+				<td><a th:href="@{'/showCustomerForUpdate/' + ${customer.custId} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&currPage=' + ${currPage} + '&pageSize=' + ${pageSize}}"><button type="button">Update</button></a>
+					<a th:href="@{'/deleteCustomer/' + ${customer.custId} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&currPage=' + ${currPage} + '&pageSize=' + ${pageSize}}"><button type="button">Delete</button></a>
+					<a th:href="@{'/showCustomerForUpdate/' + ${-customer.custId} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&currPage=' + ${currPage} + '&pageSize=' + ${pageSize}}"><button type="button">Duplicate</button></a>
+					<span th:hidden="${customer.isActive} ? 'true' ">
+					    <a th:href="@{'/andCustomer/' + ${customer.custId} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&currPage=' + ${currPage} + '&pageSize=' + ${pageSize}}"><button type="button">Reactivate</button></a>
+					</span>
+					<span th:hidden="${!customer.isActive} ? 'true' ">
+						<a th:href="@{'/andCustomer/' + ${-customer.custId} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&currPage=' + ${currPage} + '&pageSize=' + ${pageSize}}"><button type="button">Deactivate</button></a>
+					</span>
+				</td>
+				<td><a th:href="@{'/otsCustomerUpdate/' + ${customer.custId} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&currPage=' + ${currPage} + '&pageSize=' + ${pageSize}}"><button type="button">Update</button></a>
+					<a th:href="@{'/otsCustomerUpdate/' + ${-customer.custId} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&currPage=' + ${currPage} + '&pageSize=' + ${pageSize}}"><button type="button">Duplicate</button></a>
+				</td>
+			</tr>
+		</tbody>
+
+		<tr>
+			<td colspan="12">
+			<table width="100%" border="1"><tr>
+			<td th:if="${currPage > 1}"><a th:href="@{'/page/1' + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&pageSize=' + ${pageSize}}">First</a></td>
+			<td th:if="${currPage > 1}"><a th:href="@{'/page/' + ${currPage - 1} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&pageSize=' + ${pageSize}}">Prev</a></td>
+			<td>Page [[${currPage}]] of [[${totalPages}]]</td>
+			<td th:if="${currPage < totalPages}"><a th:href="@{'/page/' + ${currPage + 1} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&pageSize=' + ${pageSize}}">Next</a></td>
+			<td th:if="${currPage < totalPages}"><a th:href="@{'/page/' + ${totalPages} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&pageSize=' + ${pageSize}}">Last</a></td>
+			<td align="right" th:if="${totalPages > 1}">Total Rows: [[${totalItems}]]</td>
+			</tr></table>
+			</td>
+			<td>
+				<span th:if="${pageSize != 10}">
+					<a th:href="@{'/page/' + ${currPage} + '?pageSize=10&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection}}"><button type="button">Page size --> 10</button></a></span>
+				<span th:if="${pageSize != 5}">
+					<a th:href="@{'/page/' + ${currPage} + '?pageSize=5&sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection}}"><button type="button">Page size --> 5</button></a></span>
+			</td>
+		</tr>
+
+		<tr>
+			<td><input type="text" th:field="*{custId}" readonly size="5"/></td>
+			<td><input type="text" th:field="*{custName}"/></td>
+			<td><input type="text" th:field="*{nric}" size="9"/></td>
+			<td><input type="text" th:field="*{phoneNo}" size="15"/></td>
+			<td><input type="email" th:field="*{email}"/></td>
+			<td><input type="text" th:field="*{addr1}"/></td>
+			<td><input type="text" th:field="*{addr2}"/></td>
+			<td><input type="date" th:field="*{dob}"/></td>
+			<td><input type="checkbox" th:field="*{isActive}"/></td>
+			<td><input type="text" th:field="*{passCode}" size="6"/></td>
+			<td><input type="text" th:field="*{dateUpd}"  size="9" readonly/></td>
+			<td><button type="Submit">Save</button></td>
+			<td><a th:href="@{'/page/' + ${currPage} + '?sortField=' + ${sortField} + '&sortDirection=' + ${sortDirection} + '&pageSize=' + ${pageSize}}"><button type="button">Reset</button></a></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><span th:if="${#fields.hasErrors('custName')}" th:errors="*{custName}"></span></td>
+			<td><span th:if="${#fields.hasErrors('nric')}" th:errors="*{nric}"></span></td>
+			<td><span th:if="${#fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}"></span></td>
+			<td><span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span></td>
+			<td><span th:if="${#fields.hasErrors('addr1')}" th:errors="*{addr1}"></span></td>
+			<td><span th:if="${#fields.hasErrors('addr2')}" th:errors="*{addr2}"></span></td>
+			<td><span th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}"></span></td>
+			<td><span th:if="${#fields.hasErrors('isActive')}" th:errors="*{isActive}"></span></td>
+			<td><span th:if="${#fields.hasErrors('passCode')}" th:errors="*{passCode}"></span></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			
+		</tr>
+	</table>
+</form>
+	
+</body>
+</html>

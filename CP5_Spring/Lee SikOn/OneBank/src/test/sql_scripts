@@ -1,0 +1,39 @@
+truncate TABLE CUSTOMER
+--select 'Insert into CUSTOMER (CUSTID,CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values (' ||
+select 'Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values (' ||
+--       TO_CHAR(CUSTID) || ',' || 
+       '''' || CUSTNAME || '''' || ',' || 
+       '''' || TO_CHAR(DOB,'DD-MON-YYYY') || '''' || ',' || 
+       '''' || PHONENO || '''' || ',' ||
+       '''' || EMAIL || '''' || ',' ||
+       ISACTIVE || ',' || 
+       '''' || ADDR1 || '''' || ',' ||
+       '''' || ADDR2 || '''' || ',' ||
+       '''' || NRIC || '''' || ',' ||
+       '''' || PASSCODE || '''' || ',' ||
+       '''' || TO_CHAR(DATEUPD,'DD-MON-YYYY') || '''' || ');'
+       from customer
+
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Monica Geller','15-JUN-1964','+155534568765','m.geller@friends.com',1,'Birmingham','Alabama, United States','FRIENDS02','123456','14-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Rachel Green','11-FEB-1969','+155534568765','r.green@friends.com',1,'Sherman Oaks, Los Angeles','California, United States','FRIENDS01','123456','15-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Joey Tribbiani','11-FEB-1969','+155534568765','j.tribbiani@friends.com',0,'Newton','Massachusetts, United States','FRIENDS05','123456','15-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Chandler Bing','19-AUG-1969','+155534568765','c.bing@friends.com',1,'Williamstown','Massachusetts, United States','FRIENDS03','123456','14-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Phoebe Buffay','30-JUL-1963','+155534568765','p.buffay@friends.com',1,'Encino, Los Angeles','California, United States','FRIENDS04','123456','14-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Ross Green','02-NOV-1969','+155534568765','ross.green@friends.com',1,'Flushing','New York, United States','FRIENDS06','123456','15-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Jerry Seinfeld','29-APR-1954','+155534568765','j.seinfeld@seinfled.com',0,'Brooklyn','New York, United States','SEINFELD0','123456','14-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('George Costanza','23-SEP-1959','+155534568765','g.costanza@seinfled.com',1,'Newark','New Jersey, United States','SEINFELD2','123456','14-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Kramer Cosmos','24-JUL-1949','+155534568765','k.cosmos@seinfled.com',1,'Culver City','California, United States','SEINFELD3','123456','15-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Elaine Benes','13-JAN-1961','+155534568765','e.benes@seinfled.com',1,'Manhattan','New York, United States','SEINFELD1','123456','14-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Newman Doe','07-AUG-1955','+155534568765','newman@seinfled.com',1,'Newyork','New York, United States','SEINFELD4','123456','14-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Frank Costanza','08-JUN-1927','+155534568765','f.costanza@seinfled.com',1,'Upper West Side','New York, United States','SEINFELD5','123456','15-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Patrick Jane','30-JUL-1969','+155534568765','p.janes@mentalist.com',0,'Launceston','Australia','MENTAL000','123456','15-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Teresa Lisbon','19-JUN-1972','+155534568765','t.lisbon@mentalist.com',1,'Chicago','Illinois, United States','MENTAL001','123456','15-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Wayne Rigsby','02-JUL-1978','+155534568765','w.rigsby@mentalist.com',1,'Chepstow','United Kingdom','MENTAL005','123456','15-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Kimball Cho','16-MAR-1973','+155534568765','k.cho@mentalist.com',1,'San Francisco','California, United States','MENTAL004','123456','15-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Grace Van Pelt','04-APR-1983','+155534568765','gvpelt@mentalist.com',1,'St. George','Utah, United States','MENTAL002','123456','15-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Murphy Brown','09-MAY-1946','+155534568765','m.brown@murphybrown.com',1,'Beverly Hills','California, United States','MBROWN000','123456','15-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Corky Sherwood','14-SEP-1964','+155534568765','c.sherwood@murphybrown.com',1,'Alexandria','Louisiana, United States','MBROWN001','123456','15-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Miles Siverberg','27-FEB-1961','+155534568765','m.silverberg@murphybrown.com',1,'Evanston','Illinois, United States','MBROWN002','123456','15-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Frank Fontana','24-AUG-1949','+155534568765','f.fontana@murphybrown.com',1,'Brooklyn','New York, United States','MBROWN005','123456','15-JAN-2021');
+Insert into CUSTOMER (CUSTNAME,DOB,PHONENO,EMAIL,ISACTIVE,ADDR1,ADDR2,NRIC,PASSCODE,DATEUPD) values ('Jim Dial','23-MAY-1936','+155534568765','j.dial@murphybrown.com',1,'Saint Paul','Minnesota, United States','MBROWN006','123456','15-JAN-2021');
+
