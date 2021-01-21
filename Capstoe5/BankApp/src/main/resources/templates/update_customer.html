@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Bank App</title>
+</head>
+<body>
+	<h1>Update Customer Page</h1>
+	<hr>
+	<form method="POST" th:action="@{/saveCustomer}" action="#"
+		th:object="${customer}">
+		<input type="hidden" th:field="*{custId}">
+		<br>Customer Name :  <input type="text" th:field="*{custName}" placeholder="Customer Name : " /> 
+		<br>Date of Birth : <input type="date" th:field="*{dob}" placeholder="Date of Birth : " /> 
+		<br>Email Address : <input type="text" th:field="*{email}" placeholder="Email Address : " /> 
+		<br>is Active ? : <input type="checkbox" th:field="*{isActive}" placeholder="is Active ? : " />
+		<br>Phone Number : <input type="text" th:field="*{phoneNo}" placeholder="Phone Number : " />
+		<input type="hidden" th:field="*{passCode}">
+		<br><button type="Submit">Update Customer Details</button>
+	</form>
+	<hr>
+	
+	<a th:href="@{/}"> Back to Customer Listing </a>
+</body>
+</html>

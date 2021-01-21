@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Bank App</title>
+</head>
+<body>
+	<h1>Customer Details Page</h1>
+	<hr>
+	<form method="POST" th:action="@{/saveCustomer}" action="#"
+		th:object="${customer}">
+		
+		<br><br>Customer Name :  <input type="text" th:field="*{custName}" placeholder="Customer Name : " />
+		<label th:if="${#fields.hasErrors('custName')}" th:errors="*{custName}" />  
+		
+		<br><br>Date of Birth : <input type="date" th:field="*{dob}" placeholder="Date of Birth : " /> 
+		<label th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}" /> 
+		
+		<br><br>Email Address : <input type="email" th:field="*{email}" placeholder="Email Address : " /> 
+		<label th:if="${#fields.hasErrors('email')}" th:errors="*{email}" /> 
+		
+		<br><br>is Active ? : <input type="checkbox" th:field="*{isActive}" placeholder="is Active ? : " />
+		
+		<br><br>Phone Number : <input type="text" th:field="*{phoneNo}" placeholder="Phone Number : " />
+		<label th:if="${#fields.hasErrors('phoneNo')}" th:errors="*{phoneNo}" /> 
+		
+		<br><br>Possitivity  : <input type="range" th:field="*{positivity}" placeholder="Positivity : " />
+		
+		<br><br>Passcode : <input type="password" th:field="*{passCode}" placeholder="Pass Code  : " />
+		<label th:if="${#fields.hasErrors('passCode')}" th:errors="*{passCode}" /> 
+		
+		<br><br><button type="Submit">Save Customer Details</button>
+	</form>
+	<hr>
+	
+	<a th:href="@{/}"> Back to Customer Listing </a>
+</body>
+</html>
