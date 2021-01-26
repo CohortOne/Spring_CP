@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Sample Springboot Security Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" 
+          href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+  </head>
+
+  <body>
+
+
+	<h1 style="text-align:center">
+	
+	<span>  You have been redirected here by Aspect Advice in Springboot </span>
+	<br>
+	<span>  You dont have the access to this page</span>
+	<br>
+	
+   <span th:text="${#authentication.getPrincipal().getUsername()}"></span>
+   
+   </h1>
+  
+
+  </body>
+
+</html>
